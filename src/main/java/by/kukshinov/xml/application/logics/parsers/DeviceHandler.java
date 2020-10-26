@@ -67,7 +67,7 @@ public class DeviceHandler extends DefaultHandler {
 
     @Override
     public void endElement(
-		  String uri, String localName, String qName) throws SAXException {
+		  String uri, String localName, String qName) {
 	   currentFieldName = ROOT;
 	   if (COOLER.equalsIgnoreCase(localName) || PROCESSOR.equalsIgnoreCase(localName)) {
 		  devices.add(currentDevice);
@@ -75,7 +75,7 @@ public class DeviceHandler extends DefaultHandler {
     }
 
     @Override
-    public void characters(char[] ch, int start, int length) throws SAXException {
+    public void characters(char[] ch, int start, int length) {
 	   String fieldValue = new String(ch, start, length).trim();
 	   if (currentFieldName != null) {
 		  setDeviceField(fieldValue);

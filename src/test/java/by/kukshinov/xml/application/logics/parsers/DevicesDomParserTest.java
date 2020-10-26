@@ -1,6 +1,7 @@
 package by.kukshinov.xml.application.logics.parsers;
 
 
+import by.kukshinov.xml.application.logics.ParserException;
 import by.kukshinov.xml.application.model.*;
 import org.junit.Assert;
 import org.testng.annotations.DataProvider;
@@ -29,7 +30,7 @@ public class DevicesDomParserTest {
 
 
     @Test(dataProvider = "getDevicesList")
-    public void testParseShouldParseXmlAndBuildListOfDevices(List<Device> expected) {
+    public void testParseShouldParseXmlAndBuildListOfDevices(List<Device> expected) throws ParserException {
 	   DevicesDomParser domParser = new DevicesDomParser();
 
 	   //when

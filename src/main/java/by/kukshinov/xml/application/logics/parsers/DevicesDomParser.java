@@ -1,6 +1,7 @@
 package by.kukshinov.xml.application.logics.parsers;
 
 import by.kukshinov.xml.application.logics.ConstantNotPresentException;
+import by.kukshinov.xml.application.logics.ParserException;
 import by.kukshinov.xml.application.model.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -49,7 +50,7 @@ public class DevicesDomParser implements Parser {
     }
 
     @Override
-    public List<Device> parse(String filePath) {
+    public List<Device> parse(String filePath) throws ParserException {
 	   DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
 	   try {
 		  DocumentBuilder documentBuilder = builderFactory.newDocumentBuilder();
@@ -75,7 +76,7 @@ public class DevicesDomParser implements Parser {
 			 }
 		  }
 	   } catch (ParserConfigurationException | SAXException | IOException e) {
-		 LOGGER.error(e.getMessage(), e);
+		 throw new ParserException(e.getMessage(), e);
 	   }
 	   return new ArrayList<>(devices);
     }

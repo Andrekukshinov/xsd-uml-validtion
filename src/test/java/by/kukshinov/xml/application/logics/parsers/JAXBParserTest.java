@@ -1,6 +1,7 @@
 package by.kukshinov.xml.application.logics.parsers;
 
 
+import by.kukshinov.xml.application.logics.ParserException;
 import by.kukshinov.xml.application.model.Device;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -13,7 +14,7 @@ public class JAXBParserTest {
 
 
     @Test(dataProvider = "getDevicesList", dataProviderClass = DevicesDomParserTest.class)
-    public void test(List<Device> expected) {
+    public void test(List<Device> expected) throws ParserException {
 	   JAXBParser parser = new JAXBParser();
 	   List<Device> parse = parser.parse(FILE_PATH);
 	   Assert.assertEquals(parse, expected);

@@ -1,8 +1,8 @@
 package by.kukshinov.xml.application.logics.parsers;
 
 
+import by.kukshinov.xml.application.logics.ParserException;
 import by.kukshinov.xml.application.model.Device;
-import jdk.nashorn.internal.runtime.ParserException;
 
 import java.util.List;
 

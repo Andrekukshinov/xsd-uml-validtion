@@ -1,5 +1,6 @@
 package by.kukshinov.xml.application.logics.parsers;
 
+import by.kukshinov.xml.application.logics.ParserException;
 import by.kukshinov.xml.application.model.Device;
 import by.kukshinov.xml.application.model.Devices;
 import org.xml.sax.SAXException;
@@ -17,7 +18,7 @@ import java.util.List;
 
 public class JAXBParser implements Parser {
     @Override
-    public List<Device> parse(String filePath) {
+    public List<Device> parse(String filePath) throws ParserException {
         try {
             JAXBContext context = JAXBContext.newInstance(Devices.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
@@ -30,9 +31,8 @@ public class JAXBParser implements Parser {
             System.out.println(devices);
             return devices.getDevices();
         } catch (JAXBException | SAXException e) {
-            e.printStackTrace();
-            throw new RuntimeException();
+            throw new ParserException();
         }
     }
 }
-// TODO: 26.10.2020 refactor packages, create factory, throw custom exception create controller
+// TODO: 26.10.2020 refactor packages, create factory
