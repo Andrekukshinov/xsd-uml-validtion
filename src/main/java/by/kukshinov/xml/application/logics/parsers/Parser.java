@@ -1,0 +1,13 @@
+package by.kukshinov.xml.application.logics.parsers;
+
+
+import by.kukshinov.xml.application.model.Device;
+import jdk.nashorn.internal.runtime.ParserException;
+
+import java.util.List;
+
+
+public interface Parser {
+    List<Device> parse(String filePath) throws ParserException;
+
+}

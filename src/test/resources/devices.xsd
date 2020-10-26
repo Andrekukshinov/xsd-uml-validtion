@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/devices"
+        xmlns:tns="http://www.example.com/devices"
+        elementFormDefault="qualified">
+
+    <element name="devices">
+        <complexType>
+            <sequence>
+                <element  ref="tns:device" minOccurs="2" maxOccurs="unbounded" />
+            </sequence>
+        </complexType>
+
+    </element>
+    <element name="device" type="tns:device-type" abstract="true"/>
+    <element name="cooler" type="tns:cooler-entity-type" substitutionGroup="tns:device"/>
+    <element name="processor" type="tns:processor-type" substitutionGroup="tns:device"/>
+
+    <complexType name="device-type">
+        <sequence>
+            <element name="energy-consumption" type="int"/>
+            <element name="producer" type="tns:producer-type"/>
+            <element name="name" type="string"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="cooler-entity-type">
+        <complexContent>
+            <extension base="tns:device-type">
+                <sequence>
+                    <element name="routes-per-minute" type="int"/>
+                    <element name="cooler-type" type="tns:cooler-type"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="processor-type">
+        <complexContent>
+            <extension base="tns:device-type">
+                <sequence>
+                    <element name="core-amount" type="int"/>
+                    <element name="frequency" type="tns:frequency-type"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+
+    <simpleType name="country-type">
+        <restriction base="string">
+            <enumeration value="Belarus"/>
+            <enumeration value="USA"/>
+            <enumeration value="Canada"/>
+            <enumeration value="Germany"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="producer-type">
+        <all>
+            <element name="country" type="tns:country-type"/>
+            <element name="producer-name" type="string"/>
+        </all>
+    </complexType>
+
+
+    <simpleType name="cooler-type">
+        <restriction base="string">
+            <enumeration value="AIR"/>
+            <enumeration value="WATER"/>
+        </restriction>
+    </simpleType>
+
+
+    <simpleType name="frequency-type">
+        <restriction base="string">
+            <pattern value="([0-9]){1,5}(\.)([0-9]){0,2}([a-zA-Z]){0,3}"/>
+        </restriction>
+    </simpleType>
+</schema>
