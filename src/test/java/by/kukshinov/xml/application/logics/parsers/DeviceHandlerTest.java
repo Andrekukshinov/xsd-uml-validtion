@@ -14,7 +14,7 @@ public class DeviceHandlerTest {
 
 
     @Test
-    public void testCharactersShouldSetEnergyConsumptionForDevice() throws SAXException {
+    public void testCharactersShouldSetEnergyConsumptionForDevice() {
 	   DeviceHandler handler = new DeviceHandler();
 	   Device device = new Cooler();
 	   handler.setCurrentDevice(device);
@@ -30,7 +30,7 @@ public class DeviceHandlerTest {
     }
 
     @Test
-    public void testCharactersShouldSetProducerForDevice() throws SAXException {
+    public void testCharactersShouldSetProducerForDevice() {
 	   DeviceHandler handler = new DeviceHandler();
 	   Device device = new Cooler();
 	   handler.setCurrentProducer(new Producer());
@@ -48,7 +48,7 @@ public class DeviceHandlerTest {
     }
 
     @Test
-    public void testStartElementShouldCreateCooler() throws SAXException {
+    public void testStartElementShouldCreateCooler() {
 	   DeviceHandler handler = new DeviceHandler();
 	   String deviceName = "cooler";
 	   Device expected = new Cooler();
@@ -61,7 +61,7 @@ public class DeviceHandlerTest {
     }
 
     @Test
-    public void testStartElementShouldCreateProcessor() throws SAXException {
+    public void testStartElementShouldCreateProcessor() {
 	   DeviceHandler handler = new DeviceHandler();
 	   String deviceName = "processor";
 	   Device expected = new Processor();
@@ -74,7 +74,7 @@ public class DeviceHandlerTest {
     }
 
     @Test
-    public void testEndElementShouldCreateProcessor() throws SAXException {
+    public void testEndElementShouldCreateProcessor() {
 	   DeviceHandler handler = new DeviceHandler();
 	   String deviceName = "processor";
 	   Device device = new Processor();

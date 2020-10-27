@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class XmlValidator {
 
-    public boolean isSchemaValid(String fileName, String schemaName ) throws ParserException {
+    public boolean isSchemaValid(String fileName, String schemaName ) throws ValidatorException {
 	   String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
 	   SchemaFactory factory = SchemaFactory.newInstance(language);
 	   File schemaLocation = new File(schemaName);
@@ -25,7 +25,7 @@ public class XmlValidator {
 		  Source source = new StreamSource(fileName);
 		  validator.validate(source);
 	   } catch (SAXException | IOException e) {
-		  throw new ParserException(e.getMessage(), e);
+		  throw new ValidatorException(e.getMessage(), e);
 	   }
 	   return true;
     }
