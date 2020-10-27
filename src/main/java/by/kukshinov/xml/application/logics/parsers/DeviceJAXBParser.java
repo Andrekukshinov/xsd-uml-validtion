@@ -16,13 +16,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class JAXBParser implements Parser {
+public class DeviceJAXBParser implements Parser {
+    private String schemaName;
+
+    public DeviceJAXBParser(String schemaName) {
+        this.schemaName = schemaName;
+    }
+
     @Override
     public List<Device> parse(String filePath) throws ParserException {
         try {
             JAXBContext context = JAXBContext.newInstance(Devices.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
-            String schemaName = "src/test/resources/devices.xsd";
             SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
             File schemaLocation = new File(schemaName);
             Schema schema = factory.newSchema(schemaLocation);
@@ -34,5 +39,13 @@ public class JAXBParser implements Parser {
             throw new ParserException();
         }
     }
+
+    public String getSchemaName() {
+        return schemaName;
+    }
+
+    public void setSchemaName(String schemaName) {
+        this.schemaName = schemaName;
+    }
 }
-// TODO: 26.10.2020 refactor packages, create factory
+// TODO: 26.10.2020 refactor packages

@@ -26,7 +26,6 @@ public class XmlValidator {
 		  Source source = new StreamSource(fileName);
 		  validator.validate(source);
 	   } catch (SAXException | IOException e) {
-		  LOGGER.error(e.getMessage(), e);
 		  throw new ParserException(e.getMessage(), e);
 	   }
 	   return true;

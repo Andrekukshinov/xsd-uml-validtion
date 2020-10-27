@@ -8,14 +8,15 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class JAXBParserTest {
+public class DeviceJAXBParserTest {
 
     private static final String FILE_PATH = "src/test/resources/devices.xsd.xml";
 
 
     @Test(dataProvider = "getDevicesList", dataProviderClass = DevicesDomParserTest.class)
     public void test(List<Device> expected) throws ParserException {
-	   JAXBParser parser = new JAXBParser();
+	   String schemaName = "src/test/resources/devices.xsd";
+	   DeviceJAXBParser parser = new DeviceJAXBParser(schemaName);
 	   List<Device> parse = parser.parse(FILE_PATH);
 	   Assert.assertEquals(parse, expected);
     }

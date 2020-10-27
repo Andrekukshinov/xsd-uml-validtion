@@ -81,6 +81,7 @@ public class DevicesDomParser implements Parser {
 	   return new ArrayList<>(devices);
     }
 
+
     private Device buildDevice(Element deviceElement) {
 	   String tagName = deviceElement.getTagName();
 	   Device device;
