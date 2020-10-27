@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<devices xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.example.com/devices"
+         xsi:schemaLocation="http://www.example.com/devices devices.xsd">
+    <cooler>
+        <energy-consumption>4350</energy-consumption>
+        <producer>
+            <producer-name>Swift</producer-name>
+            <country>USA</country>
+        </producer>
+        <name>Jade</name>
+        <routes-per-minute>4350</routes-per-minute>
+        <cooler-type>AIR</cooler-type>
+    </cooler>
+    <processor>
+        <energy-consumption>252552</energy-consumption>
+        <producer>
+            <country>USA</country>
+            <producer-name>Intel</producer-name>
+        </producer>
+        <name>Intel-corei56440hq</name>
+        <core-amount>4</core-amount>
+        <frequency>2323.00HHz</frequency>
+    </processor>
+</devices>
