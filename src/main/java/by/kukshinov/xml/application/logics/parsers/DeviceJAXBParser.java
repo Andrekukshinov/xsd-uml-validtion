@@ -48,4 +48,3 @@ public class DeviceJAXBParser implements Parser {
         this.schemaName = schemaName;
     }
 }
-// TODO: 26.10.2020 refactor packages

@@ -14,7 +14,6 @@ import java.io.File;
 import java.io.IOException;
 
 public class XmlValidator {
-    private static final Logger LOGGER =  LogManager.getLogger(XmlValidator.class);
 
     public boolean isSchemaValid(String fileName, String schemaName ) throws ParserException {
 	   String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;

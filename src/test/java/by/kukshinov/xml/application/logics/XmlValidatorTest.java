@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class XmlValidatorTest {
     @Test
-    public void test() throws ParserException {
+    public void testValidateShouldValidateXmlByXsdAndReturnTrue() throws ParserException {
 	   XmlValidator validator = new XmlValidator();
 	   boolean result = validator.isSchemaValid("src/test/resources/devices.xsd.xml",
 			 "src/test/resources/devices.xsd");
@@ -14,10 +14,9 @@ public class XmlValidatorTest {
     }
 
     @Test(expectedExceptions = ParserException.class)
-    public void testInvalid() throws ParserException {
+    public void testValidateShouldTryValidateInvalidXmlAndThrowException() throws ParserException {
 	   XmlValidator validator = new XmlValidator();
 	   boolean result = validator.isSchemaValid("src/test/resources/invalidDevices.xsd.xml",
 			 "src/test/resources/devices.xsd");
     }
 }
-//todo rework exception in validator
